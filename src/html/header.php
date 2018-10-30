@@ -1,3 +1,8 @@
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+</style>
 <?php
 
 if(session_id() == '' || !isset($_SESSION)) 
@@ -6,8 +11,10 @@ if(session_id() == '' || !isset($_SESSION))
 }
 if ( isset( $_SESSION['username'] ) ) {
 	
-	echo "<a href='index.php'>Home</a>                             ";
-    echo "You are logged in as ". $_SESSION['username'];
+	$name = $_SESSION['username'] == "admin" ? "<a href='/admin/index.php'>admin</a>" : $_SESSION['username'];
+	
+	echo "<a href='/index.php'>Home</a>                             ";
+    echo "You are logged in as ". $name;
 	echo " | <a href='logout.php'>Logout</a><br>";
 	
 } else {

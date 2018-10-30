@@ -1,7 +1,7 @@
 <?php
 //Please ensure all files / directory has 777 permissions.
 $sqlite_db_location = "/var/www/html/includes/dps.db"; //Database location
-$base_image_location = "/path/for/vm/base/images"; //location of base images (.qcow2)
+$base_image_location = "/home/jacob/vm/"; //location of base images
 $user_path_for_backing_images = "/var/www/html/users"; //User snapshot image location
 $vm_mem_mb = 2048; //Memory each for each machine
 $vm_max_mem_mb = 2560; //Max memory for each machine
