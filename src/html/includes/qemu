@@ -1,0 +1,15 @@
+#!/bin/bash
+#echo "qemu-hook: $@ $(whoami)" >> /tmp/libvirt.log
+
+
+case "$2" in
+	"started" )
+		bash /var/www/html/includes/noVNCControl.sh "start" "$1" > /dev/null 2>&1 &
+		#echo "Sent start request to noVNC $1" >> /tmp/libvirt.log
+
+		;;
+	"stopped" )
+		bash /var/www/html/includes/noVNCControl.sh "stop" "$1" > /dev/null 2>&1 &
+		#echo "Sent stop request to noVNC $1" >> /tmp/libvirt.log
+		;;
+esac
