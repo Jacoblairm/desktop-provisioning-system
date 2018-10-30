@@ -13,6 +13,8 @@ The system has only been installed and tested to work on Ubuntu 18.04 x64.
 # sudo chmod +x install.sh
 # sudo ./install.sh
 ```
+- Restart host machine
+
 Edit /var/www/html/setting.php to your desired configuration
 
 #### Installing Images
