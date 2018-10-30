@@ -21,7 +21,7 @@ Please reboot the system to ensure all services are correctly started.
 ### Configuration
 Edit /var/www/html/settings.php to your desired configuration.
 
-This file allows you to change certain image directories, virtual machine settings, network settings and miscellaneous system settings.
+This file allows you to change certain image directories, virtual machine settings, network settings and miscellaneous system settings.  
 
 Note - All directories and images you use are required to have full read/write access
 
