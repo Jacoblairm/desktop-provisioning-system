@@ -15,7 +15,7 @@ if ( isset( $_SESSION['username'] ) ) {
 	
 	echo "<a href='/index.php'>Home</a>                             ";
     echo "You are logged in as ". $name;
-	echo " | <a href='logout.php'>Logout</a><br>";
+	echo " | <a href='/logout.php'>Logout</a><br>";
 	
 } else {
     // Redirect them to the login page

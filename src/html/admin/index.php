@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 require("../header.php");
 require ("../settings.php");
@@ -23,9 +20,7 @@ require ('../includes/start_libvirt.php');
         <title>Desktop provisioning system - Administration</title>
         <style>
             table {
-                font-family: arial, sans-serif;
                 border-collapse: collapse;
-                width: 100%;
             }
 
             td, th {
@@ -150,7 +145,12 @@ if ($action == 'users')
 
         echo "<tr>" . "<td><b>" . $username . "</b></td>" . "<td>" . $labs_string . "</td>" . //possibly allow admins to interact with lab sessions
         "<td>";
-        echo '<a href="delete_user.php?user=' . $username . '">Delete user</a>';
+        echo '<a href="delete_user.php">Delete user</a>  '
+		.' <form style="display:inline" action="change_password.php" method="post">
+		<input type="password" name="password" placeholder="Change password" required>
+		<input type="hidden" name="username" value='.$username.'>
+		<input type="submit" value="Submit">
+		</form>';
         echo "</td></tr>";
 
 
@@ -231,7 +231,6 @@ if ($action == 'os')
 }
 else
 {
-    echo "{$tmp['total']} domains, {$tmp['active']} active, {$tmp['inactive']} inactive<br/><br/>";
     $ret = false;
     if ($action)
     {
@@ -284,16 +283,9 @@ else
     . "<th>Name</th>" 
     . "<th>CPU#</th>" 
     . "<th>Memory</th>" 
-    . "<th>Disk(s)</th>" 
-    . "<th>NICs</th>" 
-    . "<th>Arch</th>" 
-    . "<th>State</th>" 
-    . "<th>ID / VNC port</th>";
-
-    if ($lv->supports('screenshot'))
-    {
-        echo "<th>VNC viewer</th>";
-    }
+    . "<th>State</th>"
+	. "<th>VNC viewer</th>";
+    
 
     echo "<th>Actions</th>" . "</tr>";
     foreach($doms as $name)
@@ -340,11 +332,7 @@ else
         . "<td><b>$name</b></td>" 
         . "<td>$cpu</td>" 
         . "<td>$mem</td>" 
-        . "<td align=\"center\" title='$diskdesc'>$disks</td>" 
-        . "<td align=\"center\">$nics</td>" 
-        . "<td>$arch</td>" 
-        . "<td>$state</td>" 
-        . "<td align=\"center\">$id / $vnca</td>";
+        . "<td>$state</td>";
 
         if ($lv->supports('screenshot') && $active)
         {
