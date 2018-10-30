@@ -125,9 +125,9 @@ if ($action == 'users')
     echo '<h2>Add User</h2>
         <form action="create_user.php" method="post">
         Username:<br />
-        <input type="text" name="username"><br />
+        <input type="text" name="username" required><br />
         Password<br />
-        <input type="password" name="password">
+        <input type="password" name="password" required>
         <br /><br />
         <input type="submit" value="Submit">
         </form>';
@@ -176,7 +176,7 @@ if ($action == 'labs')
         
             <form action="create_lab.php" method="post">
             <b>Lab name:</b><br />
-            <input type="text" name="labname">
+            <input type="text" name="labname" required>
         <br />
         <b>Select Operating Systems</b><br />';
     $os_options = "";
