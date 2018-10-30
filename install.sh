@@ -20,7 +20,6 @@ sudo cp -r src/html/* /var/www/html
 sudo chmod -R 777 /var/www/html
 sudo systemctl restart libvirtd
 sudo rm /var/www/html/index.html
-sudo service apache2 restart
 sudo cp src/qemu /etc/libvirt/hooks
 sudo wget "https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.149-1/virtio-win-0.1.149.iso" -P /var/www/html/includes/
 sudo chmod 777 /var/www/html/includes/virtio-win-0.1.149.iso
@@ -30,7 +29,9 @@ sudo adduser www-data libvirt-qemu
 sudo adduser www-data libvirt
 
 
-crontab -l > mycron
-echo "* * * * * php -f /var/www/html/includes/lab_session_checker.php" >> mycron
+echo "* * * * * php -f /var/www/html/includes/lab_session_checker.php" > mycron
 crontab mycron
 rm mycron
+
+sudo systemctl restart libvirtd
+sudo service apache2 restart
