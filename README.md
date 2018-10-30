@@ -13,19 +13,29 @@ The system has only been installed and tested to work on Ubuntu 18.04 x64.
 # sudo chmod +x install.sh
 # sudo ./install.sh
 ```
-- Restart host machine
+The system will then take around 5 minutes to install.
 
-Edit /var/www/html/setting.php to your desired configuration
-
-#### Installing Images
-Place .qcow2 images to your base image directory (set in settings.php)
+Please reboot the system to ensure all services are correctly started.
 
 
-##### Convert .vdmk to .qcow2
+### Configuration
+Edit /var/www/html/settings.php to your desired configuration.
+This file allows you to change certain image directories, virtual machine settings, network settings and miscellaneous system settings.
+Note - All directories and images you use are required to have full read/write access
+
+#### Image Installation
+This system only supports the .qcow2 image format. 
+Place your .qcow2 base images to the directory that you have set in the settings.php
+Note - Ensure all images have full read/write permissions.
+
+#### Image Conversion
+Throughout building this system, I mainly used the Cisco netacad laboratories for testing purposes. These laboratory activities require you to install virtual machines to Virtualbox VMware using a provided .vmdk image file (which is the format used by Virtualbox VMware). To use these images in this system, they need to be converted to a usable format - qcow2.
+
+##### Convert .vmdk to .qcow2
 ```
-qemu-img convert -f vmdk -O qcow2 SecurityOnion_[20170907]-disk001.vmdk securityonion.qcow2;
+# qemu-img convert -f vmdk -O qcow2 inputimage.vmdk outputimage.qcow2
 ```
-##### Convert Multipart VDMK to single QCOW2
+##### Convert Multipart .vmdk to single .qcow2
 ```
-files=(DirectoryOfMultipartVDMK*); qemu-img convert -f vmdk -O qcow2 ${files[@]} ${files%-s001.vmdk}.qcow2;
+# files=(DirectoryOfMultipartVDMK*); qemu-img convert -f vmdk -O qcow2 ${files[@]} ${files%-s001.vmdk}.qcow2;
 ```
