@@ -16,7 +16,7 @@ The system has only been installed and tested to work on Ubuntu 18.04 x64.
 Edit /var/www/html/setting.php to your desired configuration
 
 #### Installing Images
-Place .qcow2 images to your backing image directory (set in settings.php)
+Place .qcow2 images to your base image directory (set in settings.php)
 
 
 ##### Convert .vdmk to .qcow2
