@@ -6,7 +6,11 @@ The system has only been installed and tested to work on Ubuntu 18.04 x64.
 
 ### Installation
 ```
+# sudo apt install unzip
 # wget https://github.com/Jacoblairm/desktop-provisioning-system/archive/master.zip
-# tar xvf master.zip
+# unzip master.zip
+# cd desktop-provisioning-system-master
+# sudo chmod +x install.sh
+# sudo ./install.sh
 ```
 
