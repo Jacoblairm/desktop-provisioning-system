@@ -1,4 +1,4 @@
-# desktop-provisioning-system"
+# desktop-provisioning-system
 Remote desktop provisioning system - Allows the creation of virtual laboratories that utilise virtual machines, accessed through your desired web browser.
 
 ### Requirements
