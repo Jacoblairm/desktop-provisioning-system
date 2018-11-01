@@ -216,6 +216,7 @@ if ($action == 'labs')
 else
 if ($action == 'os')
 {
+	include("check_os.php");
     $oss = $db->query('SELECT * FROM operating_systems');
     echo "<h2>View Installed Operating Systems</h2><table>" 
 	. "<tr>" . "<th>Name</th>" 
