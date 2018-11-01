@@ -1,3 +1,7 @@
+<head>
+    <title>Desktop provisioning system</title>
+</head>
+	
 <?php
 
 	session_start();
@@ -30,7 +34,8 @@
 	}
 	else
 	{
-	   echo '<form action="login.php" method="post">
+	   echo 'Desktop Provisioning System - login<br><br>
+	   <form action="login.php" method="post">
 		<input type="text" name="username" placeholder="Enter your username" required>
 		<input type="password" name="password" placeholder="Enter your password" required>
 		<input type="submit" value="Submit">
