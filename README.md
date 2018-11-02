@@ -43,7 +43,7 @@ Throughout building this system, I mainly used the Cisco netacad laboratories fo
 ```
 
 
-##User Manual
+## User Manual
  - Login with your credentials.
  - Select the laboratory you would like to access.
  - Press “Initialise Lab” to create the laboratory session.
